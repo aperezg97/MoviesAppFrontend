@@ -4,8 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { ButtonModule } from 'primeng/button';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {environment} from "src/environment/environment";
+import { TruncateTextPipe } from './core/pipes/truncate-text.pipe';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
     NgbModule
   ],
-  providers: [],
+  providers: [
+    {provide: 'BASE_URL', useFactory: getBaseUrl},
+    {provide: 'MoviesApi_URL', useValue: environment.apiUrl}
+  ],
+  exports: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function getBaseUrl() {
+  return document.getElementsByTagName('base')[0].href;
+}

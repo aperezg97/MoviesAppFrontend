@@ -1,0 +1,7 @@
+<div class="container">
+  <div class="row">
+    <div class="col-4" *ngFor="let movie of movies;">
+      <app-movie-card class="d-flex justify-content-center" [movie]="movie"></app-movie-card>
+    </div>
+  </div>
+</div>

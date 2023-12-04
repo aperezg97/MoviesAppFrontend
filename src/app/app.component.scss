@@ -1,0 +1,19 @@
+body {
+  font-family: Montserrat, sans-serif;
+}
+.navbar-brand {
+  background-image: url("https://img.icons8.com/?size=256&id=46684&format=png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 48px;
+  height: 48px;
+}
+
+.content-section {
+  background: rgba(0,0,0,.05);
+}
+
+.navbar-nav .nav-item:hover {
+  background-color: rgba(180, 190, 203, 0.4);
+}
