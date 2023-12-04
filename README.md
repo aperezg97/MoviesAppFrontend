@@ -25,3 +25,8 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## API BASE URL
+
+The API is meant to run on http://localhost:5161 for this project, if the domain or port is different please update it here before running the app:
+`src\environment\environment.ts`
