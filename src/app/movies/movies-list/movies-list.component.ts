@@ -1,27 +1,57 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {MoviesService} from "src/app/core/services/movies.service";
 import {Movie} from "src/app/core/models/movie";
+import {Category} from "src/app/core/models/category";
+import {CategoriesService} from "src/app/core/services/categories.service";
+import {MovieRequestModel} from "src/app/core/models/movie-request-model";
 
 @Component({
   selector: 'app-movies-list',
   templateUrl: './movies-list.component.html',
-  styleUrls: ['./movies-list.component.scss']
+  styleUrls: ['./movies-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MoviesListComponent implements OnInit{
 
   movies: Movie[] = [];
+  categories: Category[] = [];
+  selectedCategories: string[] = [];
 
-  constructor(private readonly moviesService: MoviesService) {
+  searchFieldValue?: string;
+
+  constructor(private readonly cdr: ChangeDetectorRef,
+              private readonly moviesService: MoviesService,
+              private readonly categoriesService: CategoriesService) {
   }
 
   ngOnInit() {
+    this.getCategories();
+    this.getAllMovies();
+  }
+
+  searchData() {
     this.getAllMovies();
   }
 
   getAllMovies() {
-    this.moviesService.getAllMovies().subscribe((result) => {
+    const params = this.getMoviesRequestModel();
+    this.moviesService.getAllMovies(params).subscribe((result) => {
       this.movies = result;
-    })
+      this.cdr.detectChanges();
+    });
   }
 
+  getCategories() {
+    this.categoriesService.getAllCategories().subscribe((result) => {
+      this.categories = result;
+      this.cdr.detectChanges();
+    });
+  }
+
+  getMoviesRequestModel(): MovieRequestModel{
+    const data = new MovieRequestModel();
+    data.categories = this.selectedCategories ?? [];
+    data.freeTextSearch = this.searchFieldValue;
+    return data;
+  }
 }

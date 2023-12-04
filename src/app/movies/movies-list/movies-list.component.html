@@ -1,4 +1,13 @@
 <div class="container">
+  <div class="row search-bar">
+    <div class="col-4">
+      <p-multiSelect [options]="categories" [(ngModel)]="selectedCategories" optionLabel="name" optionValue="id"></p-multiSelect>
+    </div>
+    <div class="col-8">
+      <input class="me-1" type="text" pInputText [(ngModel)]="searchFieldValue" />
+      <button pButton pRipple label="Search" icon="pi pi-search" (click)="searchData()"></button>
+    </div>
+  </div>
   <div class="row">
     <div class="col-4" *ngFor="let movie of movies;">
       <app-movie-card class="d-flex justify-content-center" [movie]="movie"></app-movie-card>

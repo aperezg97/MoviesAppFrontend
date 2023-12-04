@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {environment} from "src/environment/environment";
-import { TruncateTextPipe } from './core/pipes/truncate-text.pipe';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -14,6 +14,7 @@ import { TruncateTextPipe } from './core/pipes/truncate-text.pipe';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     NgbModule
   ],

@@ -1,6 +1,7 @@
 body {
   font-family: Montserrat, sans-serif;
 }
+
 .navbar-brand {
   background-image: url("https://img.icons8.com/?size=256&id=46684&format=png");
   background-position: center;
@@ -11,9 +12,15 @@ body {
 }
 
 .content-section {
-  background: rgba(0,0,0,.05);
+  background: rgba(0, 0, 0, .05);
 }
 
 .navbar-nav .nav-item:hover {
   background-color: rgba(180, 190, 203, 0.4);
+}
+
+:host ::ng-deep {
+  app-movies-list {
+    width: 100%;
+  }
 }
