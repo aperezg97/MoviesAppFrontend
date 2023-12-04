@@ -11,6 +11,6 @@ export class MoviesService {
     private readonly httpClient: HttpClient) { }
 
   getAllMovies(filters: MovieRequestModel): Observable<Movie[]> {
-    return this.httpClient.post<Movie[]>(`${this.apiBaseURL}/api/movies`, filters);
+    return this.httpClient.post<Movie[]>(`${this.apiBaseURL}/api/movies/search`, filters);
   }
 }
