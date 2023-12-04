@@ -19,6 +19,9 @@ export class MoviesListComponent implements OnInit{
 
   searchFieldValue?: string;
 
+  showDialog: boolean = false;
+  selectedMovie?: Movie;
+
   constructor(private readonly cdr: ChangeDetectorRef,
               private readonly moviesService: MoviesService,
               private readonly categoriesService: CategoriesService) {
@@ -53,5 +56,10 @@ export class MoviesListComponent implements OnInit{
     data.categories = this.selectedCategories ?? [];
     data.freeTextSearch = this.searchFieldValue;
     return data;
+  }
+
+  toggleMovieDetailsModal(movie: Movie) {
+    this.selectedMovie = movie;
+    this.showDialog = true;
   }
 }

@@ -1,0 +1,12 @@
+<div class="card">
+  <div class="d-flex justify-content-center">
+    <img [src]="movie?.picture" class="card-img-top" alt="Movie banner">
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{ movie?.title }} ({{ movie?.year }})</h5>
+    <span class="card-subtitle d-block my-1" *ngIf="movie?.categories">
+      <span class="badge text-bg-warning me-1" *ngFor="let catg of movie?.categories;">{{ catg.name }}</span>
+    </span>
+    <p class="card-text mt-3">{{ movie?.description }}</p>
+  </div>
+</div>

@@ -14,11 +14,14 @@ import {DropdownModule} from "primeng/dropdown";
 import {InputTextModule} from "primeng/inputtext";
 import {ButtonModule} from "primeng/button";
 import {RippleModule} from "primeng/ripple";
+import {DialogModule} from "primeng/dialog";
+import { MovieCardModalComponent } from './movie-card-modal/movie-card-modal.component';
 
 @NgModule({
   declarations: [
     MoviesListComponent,
-    MovieCardComponent
+    MovieCardComponent,
+    MovieCardModalComponent
   ],
   imports: [
     CommonModule,
@@ -32,6 +35,7 @@ import {RippleModule} from "primeng/ripple";
     InputTextModule,
     ButtonModule,
     RippleModule,
+    DialogModule
   ],
   providers: [
     MoviesService,
